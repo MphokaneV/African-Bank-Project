@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Data Room</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('sss.png') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      display: flex;
+    }
+
+    .sidebar {
+      width: 220px;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      backdrop-filter: blur(1px);
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+      height: 100vh;
+    }
+
+    .sidebar button {
+      background: rgba(0, 47, 63, 0.7);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 10px 15px;
+      border-radius: 8px;
+      text-align: left;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: background-color 0.3s ease;
+      backdrop-filter: blur(1px);
+      -webkit-backdrop-filter: blur(1px);
+    }
+
+    .sidebar button:hover {
+      background-color: #025373;
+    }
+
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .top-buttons-container {
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      gap: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(1px);
+      margin-left: 30px;
+      margin-top: 20px;
+      margin-right: 20px;
+      border-radius: 10px;
+    }
+
+    .top-buttons-container a {
+      background: rgba(0, 47, 63, 0.7);
+      color: white;
+      text-decoration: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-size: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(1px);
+      -webkit-backdrop-filter: blur(1px);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .top-buttons-container a:hover {
+      background-color: #025373;
+    }
+
+    .container {
+      margin: 20px 20px 20px 30px;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: white;
+    }
+
+    .category {
+      margin-bottom: 20px;
+    }
+
+    .category h2 {
+      color: #56B947;
+      margin-bottom: 10px;
+    }
+
+    .file-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .file-list li {
+      background-color: rgba(255, 255, 255, 0.08);
+      color: white;
+      margin-bottom: 8px;
+      padding: 10px;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .file-list li button {
+      background-color: rgba(0, 47, 63, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 12px;
+      backdrop-filter: blur(6px);
+    }
+
+    .file-list li button:hover {
+      background-color: #025373;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto;
+        height: auto;
+      }
+
+      .sidebar button {
+        flex: 1;
+        justify-content: center;
+      }
+
+      .top-buttons-container {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+
+      .container {
+        margin: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <button onclick="location.href='index.php'"><i class="fas fa-home"></i> Home</button>
+    <button><i class="fas fa-tachometer-alt"></i> Dashboard</button>
+    <button><i class="fas fa-file-alt"></i> Report</button>
+    <button><i class="fas fa-folder-open"></i> Data Room</button>
+  </div>
+
+  <!-- Main Section -->
+  <div class="main-content">
+    <div class="top-buttons-container">
+      <a href="index.php"><i class="fas fa-home"></i> Home</a>
+      <a href="#" onclick="history.back();"><i class="fas fa-arrow-left"></i> Back</a>
+    </div>
+
+    <div class="container">
+      <h1>Data Room</h1>
+
+      <div class="category">
+        <h2>📁 Financial Reports</h2>
+        <ul class="file-list">
+          <li>
+            Q1 Financials.pdf
+            <div>
+              <button>View</button>
+              <button>Download</button>
+            </div>
+          </li>
+          <li>
+            Annual Summary 2024.pdf
+            <div>
+              <button>View</button>
+              <button>Download</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="category">
+        <h2>📁 Compliance Documents</h2>
+        <ul class="file-list">
+          <li>
+            BEE Certificate.pdf
+            <div>
+              <button>View</button>
+              <button>Download</button>
+            </div>
+          </li>
+          <li>
+            SARS Clearance.pdf
+            <div>
+              <button>View</button>
+              <button>Download</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="category">
+        <h2>📁 HR Files</h2>
+        <ul class="file-list">
+          <li>
+            Leave Policy.pdf
+            <div>
+              <button>View</button>
+              <button>Download</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

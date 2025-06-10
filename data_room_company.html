@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Company Data Room</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('sss.png') 
+     
+     no-repeat center center fixed;
+      background-size: cover;
+      color: rgb(255, 255, 255);
+      display: flex;
+    }
+
+    .sidebar {
+      width: 220px;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      backdrop-filter: blur(1px);
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .sidebar button {
+      background: rgba(0, 47, 63, 0.7);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .sidebar button:hover {
+      background-color: #025373;
+    }
+
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+
+    .top-buttons {
+      padding: 20px;
+      display: flex;
+      gap: 10px;
+      background-color: rgba(0, 0, 0, 0.6);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(1px);
+      border-radius: 12px;
+    }
+
+    .top-buttons a {
+      background: rgba(0, 47, 63, 0.7);
+      color: white;
+      text-decoration: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-size: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(1px);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .top-buttons a:hover {
+      background-color: #025373;
+    }
+
+    .container {
+      margin-top: 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 12px;
+      padding: 20px;
+      box-sizing: border-box;
+      backdrop-filter: blur(1px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: white;
+    }
+
+    .category {
+      margin-bottom: 20px;
+    }
+
+    .category h2 {
+      color: #56B947;
+      margin-bottom: 10px;
+    }
+
+    .file-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .file-list li {
+      background-color: rgba(255, 255, 255, 0.08);
+      color: white;
+      margin-bottom: 8px;
+      padding: 10px;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(1px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .file-list li button {
+      background-color: rgba(0, 47, 63, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 12px;
+      backdrop-filter: blur(1px);
+    }
+
+    .file-list li button:hover {
+      background-color: #025373;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto;
+      }
+
+      .main-content {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      .sidebar button {
+        flex: 1;
+        justify-content: center;
+      }
+
+      .top-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <button onclick="location.href='index.php'"><i class="fas fa-home"></i> Home</button>
+    <button><i class="fas fa-tachometer-alt"></i> Dashboard</button>
+    <button><i class="fas fa-file-alt"></i> Report</button>
+    <button><i class="fas fa-folder-open"></i> Data Room</button>
+  </div>
+
+  <div class="main-content">
+    <div class="top-buttons">
+      <a href="index.php"><i class="fas fa-home"></i> Home</a>
+      <a href="data_room_companies.html"><i class="fas fa-arrow-left"></i> Back</a>
+    </div>
+
+    <div class="container">
+      <h1 id="companyTitle">Company Name</h1>
+
+      <div class="category">
+        <h2>📁 Business Plan</h2>
+        <ul class="file-list">
+          <li>
+            2024 Summary.pdf
+            <div><button>View</button><button>Download</button></div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="category">
+        <h2>📁 Financial Reports</h2>
+        <ul class="file-list">
+          <li>
+            Q1 Budget.xlsx
+            <div><button>View</button><button>Download</button></div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="category">
+        <h2>📁 Market Strategy</h2>
+        <ul class="file-list">
+          <li>
+            2024 Summary.pdf
+            <div><button>View</button><button>Download</button></div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="category">
+        <h2>📁 Compliance</h2>
+        <ul class="file-list">
+          <li>
+            BEE Certificate.pdf
+            <div><button>View</button><button>Download</button></div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="category">
+        <h2>📁 HR Files</h2>
+        <ul class="file-list">
+          <li>
+            Leave Policy.docx
+            <div><button>View</button><button>Download</button></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const companyName = params.get('name') || 'Unknown Company';
+    document.getElementById('companyTitle').textContent = companyName + ' - Data Room';
+  </script>
+
+</body>
+</html>
