@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Programme Events</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('final000.png') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      display: flex;
+      flex-direction: row;
+      height: 100vh;
+    }
+
+    .sidebar {
+      width: 220px;
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(1px);
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .sidebar button {
+      background: rgba(0, 47, 63, 0.7);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 15px 20px;
+      border-radius: 20px;
+      text-align: left;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      backdrop-filter: blur(1px);
+    }
+
+    .sidebar button:hover {
+      background-color: #025373;
+    }
+
+    .content-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      margin-left: 20px; /* Added space between sidebar and content */
+    }
+
+    .top-buttons {
+      padding: 20px;
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .top-buttons button,
+    .top-buttons a {
+      background: rgba(0, 47, 63, 0.7);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 14px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: background 0.3s ease;
+    }
+
+    .top-buttons button:hover,
+    .top-buttons a:hover {
+      background-color: #025373;
+    }
+
+    .overlay {
+      margin: 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 12px;
+      padding: 20px;
+      flex-grow: 1;
+      overflow-y: auto;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      font-size: 32px;
+      text-align: center;
+      cursor: pointer;
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    .event-box {
+      background-color: rgba(255, 255, 255, 0.08);
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      color: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .event-box h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      color: white;
+    }
+
+    .event-box p.date {
+      margin: 0 0 10px;
+      font-style: italic;
+      color: #ccc;
+    }
+
+    .calendar-box {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .calendar-box h3 {
+      color: #fff;
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+
+    .calendar-box table {
+      width: 100%;
+      border-collapse: collapse;
+      color: white;
+    }
+
+    .calendar-box th, .calendar-box td {
+      padding: 10px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .calendar-box th {
+      background-color: rgba(0, 47, 63, 0.7);
+    }
+
+    .today {
+      background-color: white;
+      color: black;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .top-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .sidebar {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <button onclick="location.href='programme_events.html'">Programme Events</button>
+    <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.2); margin: 10px 0;">
+    <button>Announcements</button>
+    <button>Upcoming Events</button>
+    <button>Past Events</button>
+    <button>Calendar</button>
+  </div>
+
+  <div class="content-wrapper">
+    <div class="top-buttons">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <button onclick="history.back()"><i class="fas fa-arrow-left"></i> Back</button>
+    </div>
+
+    <div class="overlay">
+      <div class="calendar-box">
+        <h3 id="calendarTitle">Calendar</h3>
+        <table id="calendarTable">
+          <thead>
+            <tr>
+              <th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th>
+              <th>Thu</th><th>Fri</th><th>Sat</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <h1 onclick="toggleEvents()"><i class="fas fa-calendar-alt"></i> Programme Events</h1>
+
+      <div id="eventList" style="display: none;">
+        <div class="event-box">
+          <h3>Quarterly Strategy Meeting</h3>
+          <p class="date">10 June 2025 • 10:00 AM</p>
+          <p>Review of KPIs, goals, and performance alignment across units.</p>
+        </div>
+
+        <div class="event-box">
+          <h3>Product Launch</h3>
+          <p class="date">24 June 2025 • 2:00 PM</p>
+          <p>Live unveiling of the platform upgrade and digital services.</p>
+        </div>
+
+        <div class="event-box">
+          <h3>Audit & Compliance Review</h3>
+          <p class="date">30 July 2025 • 11:30 AM</p>
+          <p>Pre-audit planning and documentation session for regulatory review.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleEvents() {
+      const list = document.getElementById('eventList');
+      list.style.display = list.style.display === 'none' ? 'block' : 'none';
+    }
+
+    const now = new Date();
+    const month = now.getMonth();
+    const year = now.getFullYear();
+    const today = now.getDate();
+    const firstDay = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const monthNames = [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+
+    document.getElementById("calendarTitle").innerText = `${monthNames[month]} ${year}`;
+
+    const tbody = document.querySelector("#calendarTable tbody");
+    let row = document.createElement('tr');
+
+    for (let i = 0; i < firstDay; i++) {
+      row.innerHTML += "<td></td>";
+    }
+
+    for (let day = 1; day <= daysInMonth; day++) {
+      const cell = document.createElement("td");
+      cell.innerText = day;
+      if (day === today) {
+        cell.classList.add("today");
+      }
+      row.appendChild(cell);
+      if ((firstDay + day) % 7 === 0 || day === daysInMonth) {
+        tbody.appendChild(row);
+        row = document.createElement("tr");
+      }
+    }
+  </script>
+
+</body>
+</html>
